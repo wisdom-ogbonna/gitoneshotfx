@@ -57,9 +57,6 @@ def registerPage(request):
 		return render(request, 'register.html', context)
 
 def loginPage(request):
-	if request.user.is_authenticated:
-		return redirect('index')
-	else:
 		if request.method == 'POST':
 			username = request.POST.get('username')
 			password =request.POST.get('password')
@@ -68,12 +65,11 @@ def loginPage(request):
 
 			if user is not None:
 				login(request, user)
-				return redirect('index')
-			else:
-				messages.info(request, 'Username OR password is incorrect')
+				return redirect('course')
 
 		context = {}
 		return render(request, 'login.html', context)
+
 
 @login_required(login_url='login')
 def home(request):
