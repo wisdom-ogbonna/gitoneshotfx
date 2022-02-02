@@ -31,8 +31,8 @@ def course(request):
 def teacher(request):
     return render(request, 'teacher.html')
 
-def join(request):
-    return render(request, 'join.html', {})
+def dashboard(request):
+    return render(request, 'dashboard.html')
 
 
 
